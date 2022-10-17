@@ -1,0 +1,31 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1rem;
+}
+
+.navigation {
+  display: grid;
+  align-items: stretch;
+  width: 100%;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menu {
+  list-style: none;
+
+  &-item {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
