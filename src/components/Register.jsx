@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../Styles/register.css";
 import Axios from "axios";
 
@@ -18,20 +17,6 @@ function Register() {
 
   return (
     <>
-      <nav className="navigation">
-        <ul className="menu">
-          <li className="menu-item">
-            <Link to="/Dashboard">Dashboard</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/Login">Login</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/Register">Register</Link>
-          </li>
-        </ul>
-      </nav>
-
       <div className="registration">
         <h2> Registration</h2>
         <label>Username</label>
