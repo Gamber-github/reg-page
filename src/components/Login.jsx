@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "../Styles/login.css";
 import Axios from "axios";
@@ -7,8 +7,13 @@ import { UserContext } from "./UserContext";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    localStorage.setItem("isLogged", isLoggedIn);
+  }, [user]);
 
   const login = () => {
     Axios.post("http://localhost:3001/user/login", {
@@ -18,13 +23,13 @@ function Login() {
       setUser({
         id: response.data[0].id,
         username: response.data[0].username,
-        isLogged: true,
       });
+      setIsLoggedIn(true);
     });
   };
 
-  if (user.isLogged === true) {
-    return <Navigate to="/Dashboard" />;
+  if (isLoggedIn === true) {
+    return <Navigate to="/" />;
   } else {
     return (
       <>
@@ -33,6 +38,7 @@ function Login() {
           <input
             type="text"
             placeholder="Username"
+            className="login_usernameInput"
             onChange={(e) => {
               setUsername(e.target.value);
             }}
@@ -40,6 +46,7 @@ function Login() {
           <input
             type="password"
             placeholder="Password"
+            className="login_passwordInput"
             onChange={(e) => {
               setPassword(e.target.value);
             }}

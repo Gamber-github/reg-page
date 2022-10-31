@@ -13,7 +13,6 @@ function AppRouter() {
   const [user, setUser] = useState({
     id: null,
     username: "",
-    isLogged: false,
   });
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);

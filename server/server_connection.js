@@ -40,7 +40,6 @@ app.post("/user/login", (req, res) => {
         res.send(result);
       } else {
         res.send({ message: "Wrong username or password combination" });
-        // res.status(400).send();
       }
     }
   );
