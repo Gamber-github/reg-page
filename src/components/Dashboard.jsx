@@ -5,7 +5,7 @@ import { UserContext } from "./UserContext";
 
 function Dashboard() {
   const { user, setUser } = useContext(UserContext);
-  const [isLoggedIn, setIsLoggedIn] = useState("false");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     //wyjaśniena są w Navbar.jsx
