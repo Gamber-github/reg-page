@@ -8,17 +8,8 @@ function Dashboard() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    //wyjaśniena są w Navbar.jsx
-
-    // tak to wyglądało
-    //pobieram dane z local storage
     const localData = localStorage.getItem("isLogged");
-    //sprawdzam wartosc bo domyslnie zapisywana jest jako string
-    if (localData === "true") {
-      //zmienam state z false na true
-      setIsLoggedIn(true);
-      //Problem jest ze jak tutaj dam console log i nawet to widac po zachowaniu stanu, status jest ciagle FALSE a nie TRUE jak chce ustawic.
-    }
+    localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
   //Tym sie nie przejmuj bo jest do poprawy

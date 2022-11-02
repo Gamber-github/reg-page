@@ -12,7 +12,9 @@ function Login() {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    localStorage.setItem("isLogged", isLoggedIn);
+    const localData = localStorage.getItem("isLogged");
+
+    localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
   const login = () => {
@@ -24,12 +26,12 @@ function Login() {
         id: response.data[0].id,
         username: response.data[0].username,
       });
-      setIsLoggedIn(true);
+      localStorage.setItem("isLogged", true);
     });
   };
 
   if (isLoggedIn === true) {
-    return <Navigate to="/" />;
+    return <Navigate to="/dashboard" />;
   } else {
     return (
       <>

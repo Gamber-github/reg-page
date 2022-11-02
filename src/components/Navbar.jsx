@@ -7,10 +7,7 @@ function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    //Tutaj ma się zmienić navbar w zależności czy dana w local.storage jest true czy false - taki jest zamysł
-    // Generalnie to plan jest taki: złapać zmienną, przerobić ja na boolean (bo local.sotrage zapisuje domyslanie jako string)
-    // potem uzyc setIsLoggedIn i ustawić jako true, component sie renderuje i mi pokazuje nowy navbar
-    //przyklad jest w Dashboard.jsx
+    setIsLoggedIn(localStorage.getItem("isLogged") === "true" ? true : false);
   }, [user]);
 
   return (
