@@ -14,34 +14,29 @@ function Dashboard() {
 
   //Tym sie nie przejmuj bo jest do poprawy
   const logout = () => {
-    const localValue = localStorage.setItem("isLogged", false);
+    const localData = localStorage.getItem("isLogged");
     setUser({
       id: null,
       username: "",
     });
-
-    localValue === "false" ? setIsLoggedIn(false) : setIsLoggedIn(true);
+    localStorage.removeItem("isLogged");
   };
 
-  if (isLoggedIn === "false") {
-    return <Navigate to="/" />;
-  } else {
-    return (
-      <>
-        <h2>ID: {user.id}</h2>
-        <h2>Name: {user.username}</h2>
-        <h2>Status: {isLoggedIn ? "Logged In" : "Failed"}</h2>
+  return (
+    <>
+      <h2>ID: {user.id}</h2>
+      <h2>Name: {user.username}</h2>
+      <h2>Status: {isLoggedIn ? "Logged In" : "Failed"}</h2>
 
-        <button
-          onClick={async () => {
-            await logout();
-          }}
-        >
-          Logout
-        </button>
-      </>
-    );
-  }
+      <button
+        onClick={async () => {
+          await logout();
+        }}
+      >
+        Logout
+      </button>
+    </>
+  );
 }
 
 export default Dashboard;

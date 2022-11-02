@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 function Navbar() {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {

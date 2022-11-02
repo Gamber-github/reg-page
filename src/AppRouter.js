@@ -17,33 +17,19 @@ function AppRouter() {
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
+  const loggedIn = localStorage.getItem("isLogged");
+
   return (
     <>
       <UserContext.Provider value={value}>
         <Navbar />
+        <Routes>
+          <Route path="/" exact element={loggedIn ? <Dashboard /> : <Home />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="dashboard" exact element={<Dashboard />} />
+          <Route path="register" exact element={<Register />} />
+        </Routes>
       </UserContext.Provider>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-
-        <Route
-          path="login"
-          element={
-            <UserContext.Provider value={value}>
-              <Login />
-            </UserContext.Provider>
-          }
-        />
-        <Route
-          path="dashboard"
-          element={
-            <UserContext.Provider value={value}>
-              <Dashboard />
-            </UserContext.Provider>
-          }
-        />
-        <Route path="register" element={<Register />} />
-      </Routes>
     </>
   );
 }
