@@ -14,12 +14,13 @@ function Dashboard() {
 
   //Tym sie nie przejmuj bo jest do poprawy
   const logout = () => {
+    const localValue = localStorage.setItem("isLogged", false);
     setUser({
       id: null,
       username: "",
     });
-    //Jedynie to działa tak jak bym chciał
-    localStorage.setItem("isLogged", false);
+
+    localValue === "false" ? setIsLoggedIn(false) : setIsLoggedIn(true);
   };
 
   if (isLoggedIn === "false") {
