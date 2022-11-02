@@ -13,21 +13,25 @@ function Login() {
 
   useEffect(() => {
     const localData = localStorage.getItem("isLogged");
-
     localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
-  const login = () => {
-    Axios.post("http://localhost:3001/user/login", {
-      username: username,
-      password: password,
-    }).then((response) => {
-      setUser({
-        id: response.data[0].id,
-        username: response.data[0].username,
+  const handleSubmit = async () => {
+    try {
+      const querry = await Axios.post("http://localhost:3001/user/login", {
+        username: username,
+        password: password,
+      }).then((response) => {
+        setUser({
+          id: response.data[0].id,
+          username: response.data[0].username,
+        });
+        console.log("set User: " + user);
+        localStorage.setItem("isLogged", true);
       });
-      localStorage.setItem("isLogged", true);
-    });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   if (isLoggedIn === true) {
@@ -35,34 +39,28 @@ function Login() {
   } else {
     return (
       <>
-        <div className="login">
-          <h2> Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            className="login_usernameInput"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="login_passwordInput"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <button
-            type="button"
-            className="login-btn"
-            onClick={async () => {
-              await login();
-            }}
-          >
-            Login
-          </button>
-        </div>
+        <section>
+          <form className="login" onSubmit={handleSubmit}>
+            <h2> Login</h2>
+            <input
+              type="text"
+              placeholder="Username"
+              className="login_usernameInput"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="login_passwordInput"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <button className="login-btn">Login</button>
+          </form>
+        </section>
       </>
     );
   }

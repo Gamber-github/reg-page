@@ -53,7 +53,6 @@ const Register = () => {
 
       setSuccess(true);
 
-      //After submitting the form need to clear inputs.
       setUsername("");
       setPassword("");
       setMatchPassword("");
