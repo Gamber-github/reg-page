@@ -24,7 +24,7 @@ function AppRouter() {
       <UserContext.Provider value={value}>
         <Navbar />
         <Routes>
-          <Route path="/" exact element={loggedIn ? <Dashboard /> : <Home />} />
+          <Route path="/" exact element={<Home />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="dashboard" exact element={<Dashboard />} />
           <Route path="register" exact element={<Register />} />

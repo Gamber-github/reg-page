@@ -16,7 +16,7 @@ function Login() {
     localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
-  function handleSubmit() {
+  function login() {
     Axios.post("http://localhost:3001/user/login", {
       username: username,
       password: password,
@@ -35,28 +35,26 @@ function Login() {
     return (
       <>
         <div className="login">
-          <form>
-            <h2> Login</h2>
-            <input
-              type="text"
-              placeholder="Username"
-              className="login_usernameInput"
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="login_passwordInput"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <button className="login-btn" onClick={handleSubmit}>
-              Login
-            </button>
-          </form>
+          <h2> Login</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            className="login_usernameInput"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="login_passwordInput"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <button className="login-btn" onClick={login}>
+            Login
+          </button>
         </div>
       </>
     );
