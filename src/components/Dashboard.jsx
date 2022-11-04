@@ -1,31 +1,40 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import "../Styles/dashboard.css";
 import { UserContext } from "./UserContext";
 
 function Dashboard() {
   const { user, setUser } = useContext(UserContext);
+  const [isLoggedIn, setIsLoggedIn] = useState("false");
 
-  return (
-    <>
-      <nav className="navigation">
-        <ul className="menu">
-          <li className="menu-item">
-            <Link to="/Dashboard">Dashboard</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-      </nav>
+  useEffect(() => {
+    const localData = localStorage.getItem("isLogged");
+    localData === "true" ? setIsLoggedIn("true") : setIsLoggedIn("false");
+    console.log(isLoggedIn);
+  }, [user]);
 
-      <h2>ID: {user.id}</h2>
-      <h2>Name: {user.username}</h2>
-      <h2>Status: {user.status}</h2>
+  //Tym sie nie przejmuj bo jest do poprawy
+  const logout = () => {
+    setUser({
+      id: null,
+      username: "",
+    });
+    localStorage.removeItem("isLogged");
+    setIsLoggedIn("false");
+  };
+  if (isLoggedIn === "false") {
+    return <Navigate to="/" />;
+  } else {
+    return (
+      <>
+        <h2>ID: {user.id}</h2>
+        <h2>Name: {user.username}</h2>
+        <h2>Status: {isLoggedIn ? "Logged In" : "Failed"}</h2>
 
-      <button onClick={null}>Logout</button>
-    </>
-  );
+        <button onClick={logout}>Logout</button>
+      </>
+    );
+  }
 }
 
 export default Dashboard;

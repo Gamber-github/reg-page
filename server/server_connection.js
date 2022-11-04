@@ -1,12 +1,12 @@
-var mysql = require("mysql2");
-var express = require("express");
-var cors = require("cors");
+const mysql = require("mysql2");
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host: "localhost",
   user: "Wojtek",
   password: "eConsulting123",
@@ -40,7 +40,6 @@ app.post("/user/login", (req, res) => {
         res.send(result);
       } else {
         res.send({ message: "Wrong username or password combination" });
-        // res.status(400).send();
       }
     }
   );
