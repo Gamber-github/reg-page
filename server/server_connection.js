@@ -43,6 +43,7 @@ app.post("/user/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
+  //TODO: Add 401 for incorrect
   connection.query(
     "SELECT * FROM login_user WHERE username = ? AND password = ?",
     [username, password],
@@ -51,7 +52,7 @@ app.post("/user/login", (req, res) => {
       if (result.length > 0) {
         res.send(result);
       } else {
-        res.send({ message: "Wrong username or password combination" });
+        res.sendStatus(404);
       }
     }
   );

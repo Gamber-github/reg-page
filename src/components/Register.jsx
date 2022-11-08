@@ -52,7 +52,6 @@ const Register = () => {
       });
 
       setSuccess(true);
-
       setUsername("");
       setPassword("");
       setMatchPassword("");

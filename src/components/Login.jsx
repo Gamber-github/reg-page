@@ -8,28 +8,36 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
 
   const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [username, password]);
 
   useEffect(() => {
     const localData = localStorage.getItem("isLogged");
     localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
-  function login() {
-    Axios.post("http://localhost:3001/user/login", {
-      username: username,
-      password: password,
-    }).then((response) => {
+  const login = async () => {
+    try {
+      const response = await Axios.post("http://localhost:3001/user/login", {
+        username: username,
+        password: password,
+      });
       setUser({
         id: response.data[0].id,
         username: response.data[0].username,
       });
-      localStorage.setItem("isLogged", true);
-    });
-  }
-
-  console.log(user);
+      await localStorage.setItem("isLogged", true);
+    } catch (err) {
+      if (err?.response.status === 404) {
+        setErrMsg("User does not exist in the system.");
+      }
+    }
+  };
 
   if (isLoggedIn === true) {
     return <Navigate to="/dashboard" />;
@@ -37,6 +45,7 @@ function Login() {
     return (
       <>
         <div className="login">
+          <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
           <h2> Login</h2>
           <input
             type="text"
