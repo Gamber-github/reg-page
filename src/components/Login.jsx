@@ -29,6 +29,8 @@ function Login() {
     });
   }
 
+  console.log(user);
+
   if (isLoggedIn === true) {
     return <Navigate to="/dashboard" />;
   } else {

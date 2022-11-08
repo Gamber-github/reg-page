@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./Styles/app.css";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard.jsx";
@@ -13,21 +13,32 @@ function AppRouter() {
   const [user, setUser] = useState({
     id: null,
     username: "",
+    isLogged: false,
   });
+
+  const [isLogged, setIsLogged] = useState(false);
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
-  const loggedIn = localStorage.getItem("isLogged");
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLogged");
+    loggedIn === "true" ? setIsLogged(true) : setIsLogged(false);
+  }, []);
 
   return (
     <>
       <UserContext.Provider value={value}>
-        <Navbar />
+        <Navbar state={isLogged} />
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/login" exact element={<Login />} />
-          <Route path="dashboard" exact element={<Dashboard />} />
-          <Route path="register" exact element={<Register />} />
+          <Route path="/" exact state={isLogged} element={<Home />} />
+          <Route path="/login" exact state={isLogged} element={<Login />} />
+          <Route
+            path="/dashboard"
+            state={isLogged}
+            exact
+            element={<Dashboard />}
+          />
+          <Route path="/register" exact element={<Register />} />
         </Routes>
       </UserContext.Provider>
     </>

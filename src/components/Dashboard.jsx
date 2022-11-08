@@ -7,13 +7,14 @@ function Dashboard() {
   const { user, setUser } = useContext(UserContext);
   const [isLoggedIn, setIsLoggedIn] = useState("false");
 
+  //FIXME: Make sure that the state is updated and not changed to default
   useEffect(() => {
     const localData = localStorage.getItem("isLogged");
     localData === "true" ? setIsLoggedIn("true") : setIsLoggedIn("false");
     console.log(isLoggedIn);
-  }, [user]);
+  }, []);
 
-  //Tym sie nie przejmuj bo jest do poprawy
+  //TODO: Change logout method
   const logout = () => {
     setUser({
       id: null,

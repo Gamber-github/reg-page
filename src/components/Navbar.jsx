@@ -2,12 +2,14 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
-function Navbar() {
+function Navbar(props) {
   const { user } = useContext(UserContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    setIsLoggedIn(localStorage.getItem("isLogged") === "true" ? true : false);
+    const value = localStorage.getItem("isLogged") === "true" ? true : false;
+    setIsLoggedIn(value);
+    console.log("Navbar: " + isLoggedIn);
   }, [user]);
 
   return (
