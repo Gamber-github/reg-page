@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const express = require("express");
 const cors = require("cors");
+const { send } = require("process");
 
 const app = express();
 app.use(express.json());
@@ -18,13 +19,24 @@ app.post("/user/register", (req, res) => {
   const password = req.body.password;
 
   connection.query(
-    "INSERT INTO login_user (username, password) VALUES (?,?)",
+    "SELECT * FROM login_user WHERE username = ? AND password = ?",
     [username, password],
-    (err) => {
+    (err, result) => {
       if (err) throw err;
+      if (result.length >= 1) {
+        res.sendStatus(409);
+      } else {
+        connection.query(
+          "INSERT INTO login_user (username, password) VALUES (?,?)",
+          [username, password],
+          (err) => {
+            if (err) throw err;
+            res.sendStatus(201);
+          }
+        );
+      }
     }
   );
-  res.status(201).send();
 });
 
 app.post("/user/login", (req, res) => {
