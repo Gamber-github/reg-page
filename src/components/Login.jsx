@@ -36,6 +36,9 @@ function Login() {
       if (err?.response.status === 404) {
         setErrMsg("User does not exist in the system.");
       }
+      if (err?.response.status === 401) {
+        setErrMsg("Wrong username password combination.");
+      }
     }
   };
 

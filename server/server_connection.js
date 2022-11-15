@@ -19,8 +19,8 @@ app.post("/user/register", (req, res) => {
   const password = req.body.password;
 
   connection.query(
-    "SELECT * FROM login_user WHERE username = ? AND password = ?",
-    [username, password],
+    "SELECT * FROM login_user WHERE username = ?",
+    [username],
     (err, result) => {
       if (err) throw err;
       if (result.length >= 1) {
@@ -43,7 +43,6 @@ app.post("/user/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  //TODO: Add 401 for incorrect
   connection.query(
     "SELECT * FROM login_user WHERE username = ? AND password = ?",
     [username, password],
@@ -52,7 +51,18 @@ app.post("/user/login", (req, res) => {
       if (result.length > 0) {
         res.send(result);
       } else {
-        res.sendStatus(404);
+        connection.query(
+          "SELECT * FROM login_user WHERE username = ?",
+          [username],
+          (err, result) => {
+            if (err) throw err;
+            if (result.length > 0) {
+              res.sendStatus(401);
+            } else {
+              res.sendStatus(404);
+            }
+          }
+        );
       }
     }
   );
