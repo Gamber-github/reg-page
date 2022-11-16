@@ -21,6 +21,7 @@ function Login() {
     localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
+  //TODO: Change login methos to work in Form.
   const login = async () => {
     try {
       const response = await Axios.post("http://localhost:3001/user/login", {
@@ -47,28 +48,30 @@ function Login() {
   } else {
     return (
       <>
-        <div className="login">
-          <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
-          <h2> Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            className="login_usernameInput"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="login_passwordInput"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <button className="login-btn" onClick={login}>
-            Login
-          </button>
+        <div className="container">
+          <div className="login">
+            <h2 className="login--header font-large"> Login</h2>
+            <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
+            <input
+              type="text"
+              placeholder="Username"
+              className="login--input"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="login--input"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <button className="login--button" onClick={login}>
+              Login
+            </button>
+          </div>
         </div>
       </>
     );

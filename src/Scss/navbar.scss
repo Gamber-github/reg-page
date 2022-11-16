@@ -11,10 +11,15 @@
 
     &:hover {
       background: #0575e6;
+
+      a {
+        color: white;
+      }
     }
   }
 
   a {
+    color: black;
     text-decoration: none;
   }
 }

@@ -9,6 +9,10 @@
 .menu-item:hover {
   background: #0575e6;
 }
+.menu-item:hover a {
+  color: white;
+}
 .menu a {
+  color: black;
   text-decoration: none;
 }/*# sourceMappingURL=navbar.css.map */
