@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/register.css";
+import "../css/register.css";
 import Axios from "axios";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -74,94 +74,122 @@ const Register = () => {
           </p>
         </section>
       ) : (
-        <section>
-          <form onSubmit={handleSubmit}>
-            <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
-            <h2> Registration</h2>
-            <label htmlFor="username" className={validUsername ? "valid" : ""}>
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              required
-              onFocus={() => setUsernameFocus(true)}
-              onBlur={() => setUsernameFocus(false)}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-            <p
-              className={
-                usernameFocus && username && !validUsername
-                  ? "instructions"
-                  : "offscreen"
-              }
-            >
-              4 to 24 characters. <br />
-              Must begin with a letter. <br />
-              Letters, numbers, underscores, hyphens allowed.
-            </p>
-            <label htmlFor="password" className={validPassword ? "valid" : ""}>
-              Password
-            </label>
-            <input
-              type="password"
-              required
-              onFocus={() => setPasswordFocus(true)}
-              onBlur={() => setPasswordFocus(false)}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <p
-              className={
-                passwordFocus && !validPassword ? "instructions" : "offscreen"
-              }
-            >
-              8 to 24 characters.
-              <br />
-              Must include uppercase and lowercase letters, a number and a
-              special character. Allowed special characters: ! @
-              <br />
-            </p>
-            <label
-              htmlFor="confirm-pwd"
-              className={validMatch & validPassword ? "valid" : ""}
-            >
-              Confirm password
-            </label>
-            <input
-              type="password"
-              required
-              onFocus={() => setMatchPasswordFocus(true)}
-              onBlur={() => setMatchPasswordFocus(false)}
-              onChange={(e) => setMatchPassword(e.target.value)}
-            />
-            <p
-              className={
-                matchPasswordFocus && !validMatch ? "instructions" : "offscreen"
-              }
-            >
-              Must match the password.
-            </p>
-            <button
-              disabled={
-                !validUsername || !validPassword || !validMatch ? true : false
-              }
-            >
-              Sign up
-            </button>
-            <p>
-              Already registered?
-              <br />
-              <span className="line">
-                <Link to="/login">Login</Link>
-              </span>
-            </p>
-          </form>
-        </section>
+        <div className="container">
+          <div className="registration">
+            <form className="registration__form" onSubmit={handleSubmit}>
+              <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
+              <h2 className="registration__form--header font-large">
+                Registration
+              </h2>
+              <label
+                htmlFor="username"
+                className={
+                  validUsername
+                    ? "registration__form--label font-big valid"
+                    : "registration__form--label font-big "
+                }
+              >
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                ref={userRef}
+                className="registration__form--input"
+                required
+                onFocus={() => setUsernameFocus(true)}
+                onBlur={() => setUsernameFocus(false)}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
+              <p
+                className={
+                  usernameFocus && username && !validUsername
+                    ? "instructions"
+                    : "offscreen"
+                }
+              >
+                4 to 24 characters. <br />
+                Must begin with a letter. <br />
+                Letters, numbers, underscores, hyphens allowed.
+              </p>
+              <label
+                htmlFor="password"
+                className={
+                  validPassword
+                    ? "registration__form--label font-big valid"
+                    : "registration__form--label font-big "
+                }
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                className="registration__form--input"
+                required
+                onFocus={() => setPasswordFocus(true)}
+                onBlur={() => setPasswordFocus(false)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <p
+                className={
+                  passwordFocus && !validPassword ? "instructions" : "offscreen"
+                }
+              >
+                8 to 24 characters.
+                <br />
+                Must include uppercase and lowercase letters, a number and a
+                special character. Allowed special characters: ! @
+                <br />
+              </p>
+              <label
+                htmlFor="confirm-pwd"
+                className={
+                  validMatch & validPassword
+                    ? " registration__form--label font-big valid"
+                    : "registration__form--label font-big"
+                }
+              >
+                Confirm password
+              </label>
+              <input
+                type="password"
+                className="registration__form--input"
+                required
+                onFocus={() => setMatchPasswordFocus(true)}
+                onBlur={() => setMatchPasswordFocus(false)}
+                onChange={(e) => setMatchPassword(e.target.value)}
+              />
+              <p
+                className={
+                  matchPasswordFocus && !validMatch
+                    ? "instructions"
+                    : "offscreen"
+                }
+              >
+                Must match the password.
+              </p>
+              <button
+                className="registration__form--button"
+                disabled={
+                  !validUsername || !validPassword || !validMatch ? true : false
+                }
+              >
+                Sign up
+              </button>
+              <p>
+                Already registered?
+                <br />
+                <span className="line">
+                  <Link to="/login">Login</Link>
+                </span>
+              </p>
+            </form>
+          </div>
+        </div>
       )}
     </>
   );

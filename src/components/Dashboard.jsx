@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import "../Styles/dashboard.css";
+import "../css/dashboard.css";
 import { UserContext } from "./UserContext";
 
 function Dashboard() {

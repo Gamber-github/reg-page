@@ -1,0 +1,20 @@
+.navigation {
+}
+
+.menu {
+  list-style: none;
+
+  &-item {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background: #0575e6;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

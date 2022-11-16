@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import "../css/navbar.css";
 
 function Navbar(props) {
   const { user } = useContext(UserContext);

@@ -1,0 +1,14 @@
+.menu {
+  list-style: none;
+}
+.menu-item {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.menu-item:hover {
+  background: #0575e6;
+}
+.menu a {
+  text-decoration: none;
+}/*# sourceMappingURL=navbar.css.map */

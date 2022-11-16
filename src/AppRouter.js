@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import "./Styles/app.css";
+import "./css/app.css";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard.jsx";
 import Login from "./components/Login.jsx";

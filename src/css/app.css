@@ -16,14 +16,4 @@ body {
   width: 100%;
   justify-content: flex-end;
   align-items: center;
-}
-
-.menu {
-  list-style: none;
-}
-.menu-item {
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-  text-decoration: none;
 }/*# sourceMappingURL=app.css.map */

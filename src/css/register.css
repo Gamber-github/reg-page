@@ -1,1 +1,77 @@
-/*# sourceMappingURL=register.css.map */
+.container {
+  width: 100%;
+  height: 100vh;
+  background: #0575e6; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #021b79, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 5em;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.instructions {
+  margin: 10px;
+  font-size: 0.75rem;
+  background: #fff;
+  color: #000;
+  padding: 0.25rem;
+  position: relative;
+}
+
+.registration {
+  max-width: 420px;
+  max-height: 100%;
+  margin-inline: auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+}
+.registration__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+.registration__form--header {
+  margin: 0 0 1em 0;
+}
+.registration__form--input {
+  border: none;
+  padding: 6px;
+  color: #0575e6;
+  font-weight: 700;
+}
+.registration__form--input:focus {
+  color: white;
+  background-color: #0575e6;
+}
+.registration__form--button {
+  margin: 1em 0 1em 0;
+  height: 48px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, #021b79, #0575e6);
+  color: white;
+}
+.registration__form--button:disabled {
+  background: rgba(5, 118, 230, 0.3647058824);
+}
+
+.font-large {
+  font-size: 2.48rem;
+}
+
+.font-big {
+  font-size: 1.4rem;
+}
+
+.valid {
+  color: green;
+}
+
+.errmsg {
+  color: red;
+}/*# sourceMappingURL=register.css.map */
