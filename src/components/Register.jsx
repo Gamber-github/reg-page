@@ -77,10 +77,10 @@ const Register = () => {
         <div className="container">
           <div className="registration">
             <form className="registration__form" onSubmit={handleSubmit}>
-              <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
               <h2 className="registration__form--header font-large">
                 Registration
               </h2>
+              <p className={errMsg ? "errmsg" : "offscreen"}> {errMsg}</p>
               <label
                 htmlFor="username"
                 className={

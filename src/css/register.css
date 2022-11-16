@@ -48,6 +48,7 @@
   background-color: #0575e6;
 }
 .registration__form--button {
+  cursor: pointer;
   margin: 1em 0 1em 0;
   height: 48px;
   padding: 12px;
