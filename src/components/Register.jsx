@@ -46,7 +46,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await Axios.post("http://localhost:3001/user/register", {
+      await Axios.post("http://localhost:3001/user/register", {
         username: username,
         password: password,
       });
