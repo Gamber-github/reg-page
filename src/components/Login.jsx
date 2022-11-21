@@ -21,7 +21,7 @@ function Login() {
     localData === "true" ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [user]);
 
-  //TODO: Change login methos to work in Form.
+  //TODO: Change login method to work in Form.
   const login = async () => {
     try {
       const response = await Axios.post("http://localhost:3001/user/login", {
@@ -32,9 +32,10 @@ function Login() {
         id: response.data[0].id,
         username: response.data[0].username,
       });
-      await localStorage.setItem("isLogged", true);
+      localStorage.setItem("isLogged", true);
     } catch (err) {
       if (err?.response.status === 404) {
+        //Nigdy nie informowac ze user nie istnieje tylko ze zla kombinacja.
         setErrMsg("User does not exist in the system.");
       }
       if (err?.response.status === 401) {
@@ -42,6 +43,14 @@ function Login() {
       }
     }
   };
+
+  //Session store info o uzytkowniku.
+  //Jak zabezpieczyc info o uzytkowniku? GUID i przypisac do suer i do cookies i pobierac z backendu.
+
+  //Uzyc Reduxa zamiast context api.
+  //Toolkit redux.
+
+  //Potem testy.
 
   if (isLoggedIn === true) {
     return <Navigate to="/dashboard" />;

@@ -6,7 +6,7 @@ import { UserContext } from "./UserContext";
 function Dashboard() {
   const { user, setUser } = useContext(UserContext);
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    return localStorage.getItem("isLogged");
+    localStorage.getItem("isLogged");
   });
 
   useEffect(() => {
