@@ -4,6 +4,9 @@ import "../css/login.css";
 import Axios from "axios";
 import { UserContext } from "./UserContext";
 
+import { useSelecotr, useDispatch } from "react-redux";
+import { login } from "../features/login/login-slice";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +14,8 @@ function Login() {
   const [errMsg, setErrMsg] = useState("");
 
   const { user, setUser } = useContext(UserContext);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setErrMsg("");
@@ -80,6 +85,9 @@ function Login() {
             <button className="login--button" onClick={login}>
               Login
             </button>
+
+            <h1>Redux chech</h1>
+            <button onClick={dispatch(login())}>Click me</button>
           </div>
         </div>
       </>
