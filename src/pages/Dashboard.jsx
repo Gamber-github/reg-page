@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "../css/dashboard.css";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../components/UserContext";
 
 function Dashboard() {
   const { user, setUser } = useContext(UserContext);

@@ -3,11 +3,11 @@ import "./css/app.css";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard.jsx";
 import Login from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
+import Register from "./Register.jsx";
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
+import Navbar from "./Navbar";
 
-import { UserContext } from "./components/UserContext";
+import { UserContext } from "./UserContext";
 
 function AppRouter() {
   const [user, setUser] = useState({

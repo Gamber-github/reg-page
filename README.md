@@ -1,70 +1,65 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# `Simple Registration Page`
 
-## Available Scripts
+### Table of content
 
-In the project directory, you can run:
+1. [Author](#about-author)
+2. [About project](#about-project)
+3. [Pages](#pages)
+4. [Snippets](#snippets)
+    1. [Jest](#jest-snippets)
 
-### `npm start`
+# Author
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+My name is Wojciech and I am 30 years old. Welcome to my Github repository🌟
+<br>This repository show my project which is simple registration page to show my skills as full-stack developer.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# About application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This application was designed as a portfolio project that contains a pages and solutions needed for simple registration page.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Application contains multiple solutions like:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React](https://legacy.reactjs.org/docs/getting-started.html)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Node.js](https://nodejs.org/en/docs)
+- [React Router](https://reactrouter.com/en/main)
+- [Redux](https://redux.js.org/introduction/getting-started)
+- [SCSS](https://sass-lang.com/documentation/)
+- [Axios](https://axios-http.com/docs/intro)
+- [JEST](https://jestjs.io/docs/getting-started)
+- [Express](https://expressjs.com/en/starter/installing.html)
+- [dotenv](https://www.npmjs.com/package/dotenv)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Pages
 
-### `npm run eject`
+Application contain a few pages:
+- Home
+- Dashboard
+- Login
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Snippets
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This part of documentation contain a snippets of a code that help in further iteration of the whole project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### JEST snippets
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Describe:
+    ```typescript 
+    describe("", () =>{
 
-## Learn More
+    });
+    ```
+- Test:
+    ```typescript
+    test("", ()=> {
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    });
+    ```
+- Assertions:
+    ```typescript
+    expect().toBe();
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
