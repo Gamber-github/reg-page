@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "../css/login.css";
 import Axios from "axios";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../components/UserContext";
 
 import { useSelecotr, useDispatch } from "react-redux";
 import { login } from "../features/login/login-slice";
@@ -50,7 +50,7 @@ function Login() {
   };
 
   //Session store info o uzytkowniku.
-  //Jak zabezpieczyc info o uzytkowniku? GUID i przypisac do suer i do cookies i pobierac z backendu.
+  //Jak zabezpieczyc info o uzytkowniku? GUID i przypisac do user i do cookies i pobierac z backendu.
 
   //Uzyc Reduxa zamiast context api.
   //Toolkit redux.
